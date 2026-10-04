@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <title>
+            Kerala state
+        </title>
+           <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+           <style>
+            .e1{
+                background-color:forestgreen;
+                color:ivory;
+                text-align:center;
+                font-weight:bolder;
+                padding:25px;
+                border: 4px dashed ivory;
+            }
+            #map1 {
+                width:100%;
+                height:600px;
+            }
+            
+            .l_m {
+                  position: absolute;              
+                  bottom: 20px;
+                  left: 20px;
+                  z-index: 1000;
+                  background: white;
+                  padding: 10px 15px;
+                  border-radius: 6px;
+                  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+                  font-weight: normal;
+                  text-align: left;
+                }
+
+            .l_m span {
+                 display: inline-block;
+                 width: 15px;
+                 height: 15px;
+                 margin-right: 8px;
+                 border-radius: 3px;
+                 vertical-align: middle;
+                }
+
+            #red { 
+                 background-color: red; 
+                 }
+            #yellow {
+                 background-color: yellow; 
+                }
+            #green { 
+                background-color: green;
+             }
+           
+        </style>
+    </head>
+    <body>
+        <div class="e1">
+            <h1>
+                Kerala State
+            </h1>
+        </div>
+       <div class="l_m">
+            <p>
+                <span id="red"></span>
+                Forest cover < 5%
+            </p>
+            <p>
+                <span id="yellow"></span>
+                Forest cover from 5%-15%
+            </p>
+            <p>
+                <span id="green"></span>
+                forest cover > 15%
+            </p>
+        </div> 
+        <div id="map1"></div>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+        </script>
+
+     <script>
+const map = L.map("map1").setView([10.0, 76.3], 7);
+
+
+
+fetch("../json_files/kerala.geojson")
+    .then(response => response.json())
+    .then(data => {
+  const kerala=L.geoJSON(data, { 
+                    style: function(feature) {
+                        return{ 
+                        color:"black",
+                        weight:2,
+                        fillColor:feature.properties.color,
+                        fill0pacity:1
+                        };
+                    },
+                    onEachFeature: function(feature,layer){
+                        layer.bindPopup (
+                            '<b>' + feature.properties["district"] + '</b><br>' +
+                             "Forest Cover: " + feature.properties["Forest Cover"] +'<br>'+
+                              "Afforestation Status:  " + feature.properties["Afforestation Status"]
+                    );
+    }
+     }).addTo(map);
+             })    .catch(error => console.error("GeoJSON Error:", error));
+   
+</script>
+    </body>
+
+</html>
