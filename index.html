@@ -12,11 +12,11 @@
     --leaf-light: #DDE9DC;
     --card-bg: #FFFDF6;
     --line: #D9D2BC;
-    --band-height: 220px; /* height of the green rectangle.*/
+    --band-height: 220px; 
   }
 
   * { 
-    box-sizing: border-box;   /*adjusts the content inside the box with respect to width*/
+    box-sizing: border-box;  
   } 
 
   body {
@@ -40,14 +40,14 @@
   }
 
  
-  .hero {                       /*empty space to hold green band and the box*/
+  .hero {                      
     position: relative;       
-    padding: 48px 16px 0;       /*to occupy this empty space, all elts follow this padding*/
+    padding: 48px 16px 0;       
     margin-bottom: 64px;       
   }
   .hero::before {        
     content: "";
-    position: absolute;   /*elt with absolute, will follow only its padding*/
+    position: absolute;  
     top: 0;
     left: 0;
     right: 0;
@@ -55,9 +55,9 @@
     background-color: var(--forest);        
   }
 
-  /* The white box that rises from the green rectangle. */
+  
   .hero-box {
-    position: relative;        /*space to hold the png*/
+    position: relative;        
     max-width: 350px;
     margin: -35px auto 20px;
     background: #FFFFFF;
@@ -67,13 +67,13 @@
     box-shadow: 0 6px 18px rgba(31, 77, 50, 0.25);
   }
 
-  .logo {                /*the png itself*/
+  .logo {               
     display: block;
     margin: 0 auto 8px;
     width: 100%;
-    max-width: 280px;          /* the logo never gets wider than this */
+    max-width: 280px;          
     height: auto;   
-    object-fit: contain;           /* keeps the logo's proportions */
+    object-fit: contain;         
   }
 
   .tagline {
@@ -83,25 +83,21 @@
     white-space: nowrap;
   }
 
-  /* Two dark green panels under the heading, side by side
-     (they stack on a phone, like the cards do). */
+ 
   .facts {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 16px 56px;
     display: grid;
-    grid-template-columns: 1fr;       /* phone: one fact under the other */
+    grid-template-columns: 1fr;       
     gap: 24px;
   }
-
-  /* The line between the two facts.
-     "+" means: only the fact that comes right after another fact. */
   .fact + .fact {
     border-top: 2px solid var(--forest);
     padding-top: 24px;
   }
 
-  /* Wider screens: facts side by side, so the line becomes a vertical one. */
+  
   @media (min-width: 700px) {
     .facts {
       grid-template-columns: 1fr 1fr;
@@ -131,8 +127,6 @@
 
   .fact strong { color: var(--forest); }
 
-  /* 2 columns x 2 rows, on laptops and full screens too.
-     max-width stops the cards from becoming too wide on a big screen. */
   .cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -231,12 +225,6 @@
 
   .item h3 { margin: 0 0 4px; font-size: 1.1rem; }
   .item p  { margin: 0; font-size: 0.95rem; }
-
-  /* =====================================================
-     KNOW YOUR STATE (search box with suggestions)
-     ===================================================== */
-
-  /* The story text: a comfortable reading column in the middle of the page. */
   .state-story {
     max-width: 680px;
     margin: 0 auto;
@@ -246,8 +234,6 @@
 
   .state-story p { margin: 0; }
 
-  /* The key sentences people should notice first.
-     Bold and dark green, but still the same size as the text around them. */
   .state-story .key {
     font-weight: 700;
     color: var(--forest);
@@ -292,8 +278,6 @@
     letter-spacing: 2px;
     margin-bottom: 10px;
   }
-
-  /* position: relative lets the suggestion list sit right under the input. */
   .search-wrap { position: relative; }
 
   .state-search input {
@@ -307,17 +291,15 @@
     border: 2px solid var(--forest);
     border-radius: 10px;
   }
-
-  /* The suggestion list. Hidden until the input is clicked. */
   .suggestions {
     display: none;
     position: absolute;
     top: 48px;
     left: 0;
     right: 0;
-    z-index: 10;               /* keeps the list above the cards below it */
+    z-index: 10;             
     max-height: 200px;
-    overflow-y: auto;          /* scroll inside the list if there are many states */
+    overflow-y: auto;       
     margin: 0;
     padding: 0;
     list-style: none;
@@ -336,7 +318,7 @@
   .suggestions li:hover { background: var(--leaf-light); }
 
 
-  html { scroll-behavior: smooth; }   /* footer links glide to the section */
+  html { scroll-behavior: smooth; }  
 
   .site-footer {
     background: var(--forest-dark);
@@ -353,8 +335,6 @@
     gap: 32px;
     padding-bottom: 32px;
   }
-
-  /* Phones: the columns stack one under the other. */
   @media (max-width: 699px) {
     .footer-inner { grid-template-columns: 1fr; }
   }
@@ -399,7 +379,6 @@
     outline-offset: 2px;
   }
 
-  /* The thin bottom strip with the small print. */
   .footer-bottom {
     max-width: 1000px;
     margin: 0 auto;
@@ -413,14 +392,12 @@
 </head>
 <body>
 
-  <!-- ============ SECTION 1: HEADING ============ -->
   <header class="hero">
     <div class="hero-box">
       <img class="logo" src="releaf-logo.png" alt="Re-Leaf India">
     </div>
   </header>
 
-  <!-- ============ SECTION 2: ROLES OF THE FOREST ============ -->
   <section id="roles">
     <h2>Roles the forest plays</h2>
     <div class="cards">
@@ -446,8 +423,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ============ STATISTICS ============ -->
   <div class="facts" id="statistics">
     <div class="fact">
       <p class="big">25.17%</p>
@@ -465,8 +440,6 @@
       </p>
     </div>
   </div>
-
-  <!-- ============ SECTION 3: INDIA'S SCHEMES ============ -->
   <section id="schemes">
     <h2>India's forest conservation journey</h2>
     <div class="timeline-box">
@@ -499,8 +472,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ============ SECTION 4: KNOW YOUR STATE ============ -->
   <section class="state-section" id="know-your-state">
     <div class="state-story">
       <p>
@@ -569,8 +540,6 @@
 
     var input = document.getElementById("stateInput");
     var list = document.getElementById("suggestions");
-
-    // 2. Show the states that match what is typed (all of them if the box is empty).
     function showSuggestions() {
       var typed = input.value.toLowerCase();
       list.innerHTML = "";
@@ -586,18 +555,13 @@
 
       list.style.display = list.children.length ? "block" : "none";
     }
-
-    // 3. Go to the state's page.
-    // "Tamil Nadu" becomes "tamil-nadu.html", "Kerala" becomes "kerala.html".
-    // You will make these pages later, one for each state map.
     function goToState(state) {
-      window.location.href = state.toLowerCase().replace(/ /g, "-") + ".html";
+      window.location.href = "html_works/" + state + ".html";
     }
 
-    input.addEventListener("focus", showSuggestions);   // when the box is clicked
-    input.addEventListener("input", showSuggestions);   // when something is typed
+    input.addEventListener("focus", showSuggestions);   
+    input.addEventListener("input", showSuggestions);  
 
-    // Hide the list when the user clicks anywhere outside the search box.
     document.addEventListener("click", function (e) {
       if (!e.target.closest(".search-wrap")) {
         list.style.display = "none";
